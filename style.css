@@ -1,68 +1,210 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #1b1a18;
+    color: #f9f1d9;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 body {
-    background: linear-gradient(135deg, #FFDEDE, #FAE3B0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
+    margin: 0;
 }
 
-.container {
+.main-content {
+    flex: 1;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
     text-align: center;
-    padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 15px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #fcf9ef;
+}
+
+main {
+    width: 100%;
+    max-width: 800px;
+}
+
+section {
+    margin-bottom: 2rem;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.7s forwards;
+}
+
+section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    color: #fcf9ef;
+    margin-bottom: 0.5rem;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    background-color: #2d2b29;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+    background-color: #e4af5d;
+    color: #fcf9ef;
+}
+
+.contact a {
+    color: #f9f1d9;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s;
+}
+
+.contact a:hover {
+    border-bottom: 1px solid #f9f1d9;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fcf9ef;
     width: 100%;
 }
 
-h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 2.5em;
-    color: #E63946;
-    margin-bottom: 20px;
-}
-
-.message {
-    font-size: 1.2em;
-    margin-bottom: 25px;
-    color: #333;
-}
-
-#countdown {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.time-box {
-    background: #E63946;
-    color: #FFFFFF;
-    border-radius: 10px;
-    padding: 15px 20px;
-    width: 100px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.time-box span {
-    display: block;
-    font-size: 2em;
+.toggle-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    background-color: #5D5CD6;
+    color: #f9f1d9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     font-weight: bold;
+    transition: background-color 0.3s;
 }
 
-.label {
-    font-size: 0.9em;
-    margin-top: 5px;
-    color: #FFD166;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.toggle-button:hover {
+    background-color: #e4af5d;
+}
+
+/* Light Mode Styling */
+.light-mode body {
+    background-color: #fcf9ef;
+    color: #1b1a18;
+}
+
+.light-mode header p,
+.light-mode h2,
+.light-mode .contact a,
+.light-mode footer {
+    color: #1b1a18;
+}
+
+.light-mode ul li {
+    background-color: #eaeaea;
+}
+
+.light-mode .toggle-button {
+    background-color: #1b1a18;
+    color: #fcf9ef;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .main-content {
+        padding: 1.5rem 0.5rem;
+    }
+
+    ul li {
+        padding: 0.4rem;
+    }
+
+    .toggle-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    ul li {
+        font-size: 0.9rem;
+        padding: 0.3rem;
+    }
+
+    .toggle-button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
 }
